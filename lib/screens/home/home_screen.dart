@@ -25,21 +25,21 @@ class _HomeState extends State<Home> {
 
   List<Widget> _buildScreens() {
     return [
+      const Users(),
       const Profile(),
-      const Users()
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.home),
-        title: "Home",
+        icon: const Icon(Icons.business_center_sharp),
+        title: "Trades",
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,
       ),
       PersistentBottomNavBarItem(
-        icon: const Icon(CupertinoIcons.settings),
+        icon: const Icon(Icons.perm_identity_outlined),
         title: "Settings",
         activeColorPrimary: CupertinoColors.activeBlue,
         inactiveColorPrimary: CupertinoColors.systemGrey,

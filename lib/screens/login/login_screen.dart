@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:test_application_it_grow/screens/home/home_screen.dart';
 import 'package:test_application_it_grow/screens/login/login_model.dart';
 import 'package:test_application_it_grow/utils/api_service.dart';
 import 'package:test_application_it_grow/utils/display_size.dart';
+import 'package:test_application_it_grow/utils/nav_util.dart';
 import 'package:test_application_it_grow/utils/urls.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -124,6 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if(loginResponseModel.result==true){
         saveLoginData(loginResponseModel.token!);
+        NavUtil.navigateScreen(context, const Home());
       }
 
     }
