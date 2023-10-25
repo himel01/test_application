@@ -105,7 +105,8 @@ class _UsersState extends State<Users> {
           refresh();
         },
         child: const Icon(Icons.refresh_outlined),
-      ),floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 
@@ -113,7 +114,6 @@ class _UsersState extends State<Users> {
     var body = {"login": loginId, "token": savedToken};
     var response = await ApiService().postRequest(Urls.getOpenTradesUrl, body);
 
-    print(response.statusCode);
     if (response.statusCode == 200) {
       setState(() {
         trades = openTradeModelFromJson(response.body);
@@ -129,8 +129,6 @@ class _UsersState extends State<Users> {
     if (id != null && id.toString().isNotEmpty) {
       loginId = id;
       savedToken = token!;
-      print(loginId);
-      print(savedToken);
     } else {}
   }
 

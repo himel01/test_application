@@ -17,7 +17,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController? idController;
   TextEditingController? passwordController;
-  var loginResponseModel=LoginResponseModel();
+  var loginResponseModel = LoginResponseModel();
 
   bool passwordVisible = false;
 
@@ -115,22 +115,20 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> onTapLogin() async {
-    if(idController!.text.isNotEmpty && passwordController!.text.isNotEmpty){
-      var body= {
+    if (idController!.text.isNotEmpty && passwordController!.text.isNotEmpty) {
+      var body = {
         "login": idController!.text,
         "password": passwordController!.text
       };
-      var response= await ApiService().postRequest(Urls.loginUrl,body);
+      var response = await ApiService().postRequest(Urls.loginUrl, body);
 
-      loginResponseModel= loginResponseModelFromJson(response.body);
+      loginResponseModel = loginResponseModelFromJson(response.body);
 
-      if(loginResponseModel.result==true){
-        saveLoginData(loginResponseModel.token!);
+      if (loginResponseModel.result == true) {
+        await saveLoginData(loginResponseModel.token!);
         NavUtil.navigateScreen(context, const Home());
       }
-
     }
-
   }
 
   Future syncDataWithProvider() async {
