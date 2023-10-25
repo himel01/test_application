@@ -70,9 +70,9 @@ class _ProfileState extends State<Profile> {
 
   Future<void> getUser() async {
     var body = {"login": loginId, "token": savedToken};
-    var response = await ApiService().postRequest(Urls.accountInfoUrl, body);
+    var response = await ApiService().postRequest(Urls.accountInfoUrl, body,context);
     var digitResponse =
-        await ApiService().postRequest(Urls.getLastDigitsUrl, body);
+        await ApiService().postRequest(Urls.getLastDigitsUrl, body,context);
 
     if (response.statusCode == 200 && digitResponse.statusCode == 200) {
       setState(() {

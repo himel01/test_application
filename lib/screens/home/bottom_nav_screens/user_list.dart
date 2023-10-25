@@ -112,7 +112,7 @@ class _UsersState extends State<Users> {
 
   Future<void> getUserList() async {
     var body = {"login": loginId, "token": savedToken};
-    var response = await ApiService().postRequest(Urls.getOpenTradesUrl, body);
+    var response = await ApiService().postRequest(Urls.getOpenTradesUrl, body,context);
 
     if (response.statusCode == 200) {
       setState(() {

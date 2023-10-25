@@ -120,13 +120,17 @@ class _LoginScreenState extends State<LoginScreen> {
         "login": idController!.text,
         "password": passwordController!.text
       };
-      var response = await ApiService().postRequest(Urls.loginUrl, body);
+      var response =
+          await ApiService().postRequest(Urls.loginUrl, body, context);
 
       loginResponseModel = loginResponseModelFromJson(response.body);
 
       if (loginResponseModel.result == true) {
         await saveLoginData(loginResponseModel.token!);
         NavUtil.navigateScreen(context, const Home());
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text("Something Went Wrong, Try again Later")));
       }
     }
   }
