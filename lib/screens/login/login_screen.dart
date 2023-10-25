@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 TextFormField(
                   controller: passwordController,
                   keyboardType: TextInputType.text,
-                  obscureText: passwordVisible,
+                  obscureText: !passwordVisible,
                   decoration: InputDecoration(
                     labelText: 'Enter Password',
                     focusedBorder: const UnderlineInputBorder(

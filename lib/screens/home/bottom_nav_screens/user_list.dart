@@ -119,7 +119,10 @@ class _UsersState extends State<Users> {
         trades = openTradeModelFromJson(response.body);
       });
       getProfit();
-    } else {}
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text("Something Went Wrong, Try again Later")));
+    }
   }
 
   Future syncDataWithProvider() async {
@@ -137,7 +140,7 @@ class _UsersState extends State<Users> {
       s,
       style: TextStyle(
           color: Colors.purple,
-          fontSize: displayWidth(context) * 0.05,
+          fontSize: displayWidth(context) * 0.04,
           fontWeight: FontWeight.bold),
     );
   }
