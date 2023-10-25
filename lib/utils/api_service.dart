@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:developer';
-
 import 'package:http/http.dart' as http;
 import 'package:test_application_it_grow/utils/urls.dart';
 
@@ -31,8 +30,6 @@ class ApiService{
     return httClient!
         .post(Uri.parse(completeUrl), headers: headers, body: encodedBody);
   }
-
-
 
   Future<http.Response> putRequest(
       String url,
